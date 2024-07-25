@@ -32,6 +32,7 @@ mqtt_topic_hum = 'esp32/sensor/hum'
 mqtt_topic_led = 'esp32/led'
 mqtt_topic_version = 'esp32/version'
 mqtt_topic_distance = 'esp32/sensor/distance'
+mqtt_topic_alarm = 'esp32/sensor/alarmstatus'
 client_id = 'esp32_client'
 
 from ota import OTAUpdater
@@ -124,10 +125,16 @@ while True:
         #hum = sensor.relative_humidity
         distance = measure_distance()
 
+        if distance > 15:
+            alarmstatus = False
+        else:
+            alarmstatus = True
+        
         # Publish nilai sensor ke MQTT
         client.publish(mqtt_topic_temp, str(temp))
         client.publish(mqtt_topic_hum, str(hum))
         client.publish(mqtt_topic_distance, str(distance))
+        client.publish(mqtt_topic_alarm, str(alarmstatus))
         print(f'Published temp: {temp} to {mqtt_topic_temp}')
         print(f'Published hum: {hum} to {mqtt_topic_hum}')
         print(f'Published distance: {distance} to {mqtt_topic_distance}')
