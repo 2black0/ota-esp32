@@ -100,7 +100,7 @@ while True:
     client.check_msg()  # Memeriksa pesan yang masuk
 
     current_time = time.time()
-    if current_time - last_publish_time >= 1:
+    if current_time - last_publish_time >= 5:
         temp = random_float(20.0, 21.0)
         hum = random_float(50.0, 55.0)
         
