@@ -3,6 +3,7 @@ import time
 import random
 from umqtt.simple import MQTTClient
 import json
+import urandom
 #import dht  # Pastikan pustaka DHT sudah diinstal
 
 # Tentukan pin GPIO yang digunakan untuk LED
@@ -31,6 +32,11 @@ PASSWORD = "freewifi"
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.mpy")
 ota_updater.download_and_install_update_if_available()
+
+def random_float(min_value, max_value):
+    random_int = urandom.getrandbits(16) % 10000
+    scaled_float = min_value + (max_value - min_value) * (random_int / 10000.0)
+    return round(scaled_float, 2)
 
 # Fungsi callback ketika menerima pesan dari broker MQTT
 def mqtt_callback(topic, msg):
@@ -103,8 +109,8 @@ while True:
         #dht_sensor.measure()
         #temp = dht_sensor.temperature()
         #hum = dht_sensor.humidity()
-        temp = random.randint(20,21)
-        hum = random.randint(50,55)
+        temp = random_float(20.0, 21.0)
+        hum = random_float(50.0, 55.0)
         
         # Mengukur jarak dengan sensor SRF04
         distance = measure_distance()
