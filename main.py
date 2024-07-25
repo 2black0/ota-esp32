@@ -7,7 +7,7 @@ import dht  # Pastikan pustaka DHT sudah diinstal
 
 # Tentukan pin GPIO yang digunakan untuk LED
 led = Pin(2, Pin.OUT)  # Pin 2 sering digunakan sebagai LED bawaan pada ESP32
-dht_sensor = dht.DHT11(Pin(23))  # Sensor DHT11 pada pin 23
+dht_sensor = dht.DHT11(Pin(21))  # Sensor DHT11 pada pin 23
 
 # Tentukan pin untuk sensor SRF04
 trigger = Pin(18, Pin.OUT)
