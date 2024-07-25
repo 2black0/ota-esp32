@@ -1,0 +1,612 @@
+[
+    {
+        "id": "265fb7ff6a538207",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0552e75f52fdb75b",
+        "type": "mqtt-broker",
+        "name": "LocalBroker",
+        "broker": "192.168.1.17",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "053771efcc0c4122",
+        "type": "ui_tab",
+        "name": "Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "69fe0e85962e13cc",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "8af718942f3e6d01",
+        "type": "ui_group",
+        "name": "Temperature",
+        "tab": "053771efcc0c4122",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "75c8cdbd81c675dc",
+        "type": "ui_group",
+        "name": "Humidity",
+        "tab": "053771efcc0c4122",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c85fdf6fb6b7e8e9",
+        "type": "ui_group",
+        "name": "Distance",
+        "tab": "053771efcc0c4122",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3af53646092190f3",
+        "type": "ui_group",
+        "name": "Device",
+        "tab": "053771efcc0c4122",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "87cdb8749b1a78bc",
+        "type": "mqtt in",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/sensor/temp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0552e75f52fdb75b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "4063bf297f02a6ba",
+                "4efc3a716af7cd77"
+            ]
+        ]
+    },
+    {
+        "id": "4063bf297f02a6ba",
+        "type": "ui_gauge",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "8af718942f3e6d01",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature Gauge",
+        "label": "C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 540,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "4efc3a716af7cd77",
+        "type": "ui_chart",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "8af718942f3e6d01",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperature Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 530,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21286fd64cdb0652",
+        "type": "mqtt in",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/sensor/hum",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0552e75f52fdb75b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 300,
+        "wires": [
+            [
+                "15f9a9bd909856b7",
+                "7f30931e0d9c688d"
+            ]
+        ]
+    },
+    {
+        "id": "15f9a9bd909856b7",
+        "type": "ui_gauge",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "75c8cdbd81c675dc",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity Gauge",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7f30931e0d9c688d",
+        "type": "ui_chart",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "75c8cdbd81c675dc",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Humidity Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2b31df3dc3d6b86",
+        "type": "mqtt in",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/sensor/distance",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0552e75f52fdb75b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 440,
+        "wires": [
+            [
+                "09689668172ba1a6",
+                "06d2ad9094c983ac"
+            ]
+        ]
+    },
+    {
+        "id": "09689668172ba1a6",
+        "type": "ui_gauge",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "c85fdf6fb6b7e8e9",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distance Gauge",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "150",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "06d2ad9094c983ac",
+        "type": "ui_chart",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "c85fdf6fb6b7e8e9",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Distance Chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "150",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 520,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1eba3e057dac5141",
+        "type": "ui_button",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "group": "3af53646092190f3",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "reset",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 810,
+        "y": 220,
+        "wires": [
+            [
+                "2133a46b8e623e6e"
+            ]
+        ]
+    },
+    {
+        "id": "2133a46b8e623e6e",
+        "type": "mqtt out",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/reset",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0552e75f52fdb75b",
+        "x": 1010,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "333936c5fe94c52a",
+        "type": "mqtt out",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "0552e75f52fdb75b",
+        "x": 1000,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ebb35eabfe49a98a",
+        "type": "ui_switch",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "label": "Led",
+        "tooltip": "",
+        "group": "3af53646092190f3",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "333936c5fe94c52a"
+            ]
+        ]
+    },
+    {
+        "id": "f1168902f0716bba",
+        "type": "mqtt in",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/version",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0552e75f52fdb75b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 790,
+        "y": 380,
+        "wires": [
+            [
+                "a2f8749e1315ba58"
+            ]
+        ]
+    },
+    {
+        "id": "a2f8749e1315ba58",
+        "type": "ui_text",
+        "z": "265fb7ff6a538207",
+        "group": "3af53646092190f3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Version",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 1000,
+        "y": 380,
+        "wires": []
+    }
+]
