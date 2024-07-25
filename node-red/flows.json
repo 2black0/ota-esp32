@@ -11,7 +11,7 @@
         "id": "0552e75f52fdb75b",
         "type": "mqtt-broker",
         "name": "LocalBroker",
-        "broker": "192.168.1.17",
+        "broker": "192.168.1.18",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -50,7 +50,7 @@
         "id": "69fe0e85962e13cc",
         "type": "ui_base",
         "theme": {
-            "name": "theme-light",
+            "name": "theme-dark",
             "lightTheme": {
                 "default": "#0094CE",
                 "baseColor": "#0094CE",
@@ -62,7 +62,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -72,44 +73,44 @@
             },
             "themeState": {
                 "base-color": {
-                    "default": "#0094CE",
-                    "value": "#0094CE",
+                    "default": "#097479",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#097479",
                     "edited": false
                 },
                 "page-backgroundColor": {
-                    "value": "#fafafa",
-                    "edited": false
-                },
-                "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-textColor": {
-                    "value": "#1bbfff",
-                    "edited": false
-                },
-                "group-borderColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "group-backgroundColor": {
-                    "value": "#ffffff",
-                    "edited": false
-                },
-                "widget-textColor": {
                     "value": "#111111",
                     "edited": false
                 },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#097479",
                     "edited": false
                 },
                 "widget-borderColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "base-font": {
@@ -431,7 +432,7 @@
         "z": "265fb7ff6a538207",
         "name": "",
         "group": "c85fdf6fb6b7e8e9",
-        "order": 0,
+        "order": 2,
         "width": 0,
         "height": 0,
         "label": "Distance Chart",
@@ -607,6 +608,48 @@
         "color": "#000000",
         "x": 1000,
         "y": 380,
+        "wires": []
+    },
+    {
+        "id": "098f87d1d6d35b83",
+        "type": "mqtt in",
+        "z": "265fb7ff6a538207",
+        "name": "",
+        "topic": "esp32/sensor/alarmstatus",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0552e75f52fdb75b",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 520,
+        "wires": [
+            [
+                "769f57a02b29193e"
+            ]
+        ]
+    },
+    {
+        "id": "769f57a02b29193e",
+        "type": "ui_text",
+        "z": "265fb7ff6a538207",
+        "group": "3af53646092190f3",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Alarm Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 530,
+        "y": 520,
         "wires": []
     }
 ]
