@@ -4,6 +4,7 @@ import random
 from umqtt.simple import MQTTClient
 import json
 import urandom
+import dht
 
 # Tentukan pin GPIO yang digunakan untuk LED
 led = Pin(2, Pin.OUT)  # Pin 2 sering digunakan sebagai LED bawaan pada ESP32
