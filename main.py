@@ -94,11 +94,11 @@ last_publish_time = time.time()
 
 while True:
     client.check_msg()  # Memeriksa pesan yang masuk
-    time.sleep(0.1)  # Tunggu selama 0.1 detik
+    #time.sleep(0.1)  # Tunggu selama 0.1 detik
 
     # Memeriksa apakah 5 detik telah berlalu untuk publish nilai sensor
     current_time = time.time()
-    if current_time - last_publish_time >= 5:
+    if current_time - last_publish_time >= 1:
         # Membaca nilai dari sensor DHT11
         dht_sensor.measure()
         temp = dht_sensor.temperature()
