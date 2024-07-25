@@ -4,24 +4,24 @@ import random
 from umqtt.simple import MQTTClient
 import json
 import urandom
-#import dht
-import ahtx0
+import dht
+#import ahtx0
 
 # Tentukan pin GPIO yang digunakan untuk LED
 led = Pin(2, Pin.OUT)  # Pin 2 sering digunakan sebagai LED bawaan pada ESP32
 
 # Tentukan pin untuk sensor DHT11
-#sensor = dht.DHT11(Pin(23))
+sensor = dht.DHT11(Pin(23))
 
 # Tentukan pin untuk sensor SRF04
 trigger = Pin(18, Pin.OUT)
 echo = Pin(19, Pin.IN)
 
 # I2C for the Wemos D1 Mini with ESP8266
-i2c = SoftI2C(scl=Pin(22), sda=Pin(21))
+#i2c = SoftI2C(scl=Pin(22), sda=Pin(21))
 
 # Create the sensor object using I2C
-sensor = ahtx0.AHT10(i2c)
+#sensor = ahtx0.AHT10(i2c)
 
 # Informasi MQTT
 mqtt_server = '192.168.1.17'
@@ -116,11 +116,11 @@ while True:
         #hum = random_float(50.0, 55.0)
         #distance = random_float(10, 150.0)
         
-        #sensor.measure() 
-        #temp = sensor.temperature()
-        #hum = sensor.humidity()
-        temp = sensor.temperature
-        hum = sensor.relative_humidity
+        sensor.measure() 
+        temp = sensor.temperature()
+        hum = sensor.humidity()
+        #temp = sensor.temperature
+        #hum = sensor.relative_humidity
         distance = measure_distance()
 
         # Publish nilai sensor ke MQTT
