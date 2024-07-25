@@ -9,8 +9,8 @@ import urandom
 led = Pin(2, Pin.OUT)  # Pin 2 sering digunakan sebagai LED bawaan pada ESP32
 
 # Tentukan pin untuk sensor SRF04
-trigger = Pin(18, Pin.OUT)
-echo = Pin(19, Pin.IN)
+#trigger = Pin(18, Pin.OUT)
+#echo = Pin(19, Pin.IN)
 
 # Informasi MQTT
 mqtt_server = '172.16.0.35'
@@ -67,7 +67,7 @@ def read_version():
         print('Failed to read version:', e)
         return None
 
-# Fungsi untuk mengukur jarak dengan sensor SRF04
+'''# Fungsi untuk mengukur jarak dengan sensor SRF04
 def measure_distance():
     # Kirim sinyal trigger
     trigger.off()
@@ -80,7 +80,7 @@ def measure_distance():
     duration = time_pulse_us(echo, 1, 30000)  # Timeout 30ms
     distance = (duration / 2) / 29.1  # Konversi durasi ke jarak dalam cm
     
-    return distance
+    return distance'''
 
 # Membaca versi dari file version.json
 version = read_version()
@@ -103,9 +103,7 @@ while True:
     if current_time - last_publish_time >= 5:
         temp = random_float(20.0, 21.0)
         hum = random_float(50.0, 55.0)
-        
-        # Mengukur jarak dengan sensor SRF04
-        distance = measure_distance()
+        distance = random_float(10, 150.0)
 
         # Publish nilai sensor ke MQTT
         client.publish(mqtt_topic_temp, str(temp))
