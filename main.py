@@ -24,7 +24,7 @@ echo = Pin(19, Pin.IN)
 #sensor = ahtx0.AHT10(i2c)
 
 # Informasi MQTT
-mqtt_server = '192.168.1.17'
+mqtt_server = '192.168.1.18'
 mqtt_topic_reset = 'esp32/reset'
 mqtt_topic_temp = 'esp32/sensor/temp'
 mqtt_topic_hum = 'esp32/sensor/hum'
