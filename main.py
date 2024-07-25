@@ -5,6 +5,7 @@ from umqtt.simple import MQTTClient
 import json
 import urandom
 import dht
+from wifi_data import mqtt_server, SSID, PASSWORD
 #import ahtx0
 
 # Tentukan pin GPIO yang digunakan untuk LED
@@ -24,7 +25,7 @@ echo = Pin(19, Pin.IN)
 #sensor = ahtx0.AHT10(i2c)
 
 # Informasi MQTT
-mqtt_server = '192.168.1.18'
+#mqtt_server = '192.168.1.18'
 mqtt_topic_reset = 'esp32/reset'
 mqtt_topic_temp = 'esp32/sensor/temp'
 mqtt_topic_hum = 'esp32/sensor/hum'
@@ -36,8 +37,8 @@ client_id = 'esp32_client'
 from ota import OTAUpdater
 
 firmware_url = "https://raw.githubusercontent.com/2black0/ota-esp32/"
-SSID = "POCOF5"
-PASSWORD = "1234567890"
+#SSID = "POCOF5"
+#PASSWORD = "1234567890"
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.mpy")
 ota_updater.download_and_install_update_if_available()
