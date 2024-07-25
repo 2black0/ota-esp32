@@ -25,8 +25,8 @@ client_id = 'esp32_client'
 from ota import OTAUpdater
 
 firmware_url = "https://raw.githubusercontent.com/2black0/ota-esp32/"
-SSID = "Fave"
-PASSWORD = "freewifi"
+SSID = "Wifi-Roboto"
+PASSWORD = "arDY1234"
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.mpy")
 ota_updater.download_and_install_update_if_available()
