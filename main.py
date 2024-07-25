@@ -103,8 +103,8 @@ while True:
         #dht_sensor.measure()
         #temp = dht_sensor.temperature()
         #hum = dht_sensor.humidity()
-        temp = random.randint(0,100)
-        hum = random.randint(0,100)
+        temp = random.randint(20,21)
+        hum = random.randint(50,55)
         
         # Mengukur jarak dengan sensor SRF04
         distance = measure_distance()
