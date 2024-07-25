@@ -4,11 +4,9 @@ import random
 from umqtt.simple import MQTTClient
 import json
 import urandom
-#import dht  # Pastikan pustaka DHT sudah diinstal
 
 # Tentukan pin GPIO yang digunakan untuk LED
 led = Pin(2, Pin.OUT)  # Pin 2 sering digunakan sebagai LED bawaan pada ESP32
-#dht_sensor = dht.DHT11(Pin(21))  # Sensor DHT11 pada pin 23
 
 # Tentukan pin untuk sensor SRF04
 trigger = Pin(18, Pin.OUT)
@@ -100,15 +98,9 @@ last_publish_time = time.time()
 
 while True:
     client.check_msg()  # Memeriksa pesan yang masuk
-    #time.sleep(0.1)  # Tunggu selama 0.1 detik
 
-    # Memeriksa apakah 5 detik telah berlalu untuk publish nilai sensor
     current_time = time.time()
     if current_time - last_publish_time >= 1:
-        # Membaca nilai dari sensor DHT11
-        #dht_sensor.measure()
-        #temp = dht_sensor.temperature()
-        #hum = dht_sensor.humidity()
         temp = random_float(20.0, 21.0)
         hum = random_float(50.0, 55.0)
         
