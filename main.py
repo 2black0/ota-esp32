@@ -13,7 +13,7 @@ led = Pin(2, Pin.OUT)  # Pin 2 sering digunakan sebagai LED bawaan pada ESP32
 #echo = Pin(19, Pin.IN)
 
 # Informasi MQTT
-mqtt_server = '172.16.0.35'
+mqtt_server = '192.168.1.17'
 mqtt_topic_reset = 'esp32/reset'
 mqtt_topic_temp = 'esp32/sensor/temp'
 mqtt_topic_hum = 'esp32/sensor/hum'
@@ -25,8 +25,8 @@ client_id = 'esp32_client'
 from ota import OTAUpdater
 
 firmware_url = "https://raw.githubusercontent.com/2black0/ota-esp32/"
-SSID = "Wifi-Roboto"
-PASSWORD = "arDY1234"
+SSID = "POCOF5"
+PASSWORD = "1234567890"
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.mpy")
 ota_updater.download_and_install_update_if_available()
