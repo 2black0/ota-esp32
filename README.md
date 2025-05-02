@@ -22,7 +22,7 @@ OTA-ESP32/
 ├── main.mpy           # 🔧 Compiled bytecode from main.py using mpy-cross
 ├── ota.py             # OTA update manager
 ├── version.json       # Firmware version tracking (e.g., {"version": 2})
-└── wifi\_data.py       # Wi-Fi and MQTT credentials (user-defined)
+└── wifi_data.py       # Wi-Fi and MQTT credentials (user-defined)
 
 ```
 
